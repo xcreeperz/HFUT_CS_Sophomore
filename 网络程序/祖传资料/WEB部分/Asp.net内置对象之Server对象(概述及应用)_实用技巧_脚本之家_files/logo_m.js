@@ -1,0 +1,1 @@
+﻿document.write('<a href="http://www.zzidc.com/azt/20131210/index.html" target="_blank"><img src="http://img.jb51.net/imgby/zzidc.gif" width=370 height=60 /></a>');

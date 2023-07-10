@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0037)http://www.jb51.net/article/33718.htm -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+
+<title>Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家</title>
+<meta http-equiv="Content-Language" content="zh-CN">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="keywords" content="内置对象,Server">
+<meta name="description" content="Server对象提供对服务器上的方法和属性的访问以及进行HTML编码的功能,本文主要围绕server对象介绍详细功能及常用属性和主要方法，感兴趣的朋友可以了解下，或许对你学习server对象有所帮助">
+<script type="text/javascript" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/lele0.js"></script><script type="text/javascript" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/content.js"></script>
+<link rel="stylesheet" href="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/main.css" type="text/css" media="all">
+<link rel="stylesheet" href="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/content.css" type="text/css" media="all">
+<script type="text/javascript" async="" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/embed.js" charset="UTF-8"></script><script charset="utf-8" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/t.js"></script><style>html #hm_t_3717 .hm-t-container,html #hm_t_3717 .hm-t-container * {box-sizing:content-box;margin:0;padding:0;float:none;clear:none;overflow:hidden;white-space:nowrap;word-wrap:normal;border:0;background:none;width:auto;height:auto;max-width:none;min-width:none;max-height:none;min-height:none;border-radius:0;box-shadow:none;transition:none;}html #hm_t_3717 .hm-t-list {position:relative;*zoom:1;}html #hm_t_3717 .hm-t-list-txt {padding:12px 12px 0 0;}html #hm_t_3717 .hm-t-item {display:list-item;text-align:left;float:left;list-style:none!important;}html #hm_t_3717 .hm-t-item-img {margin-top:12px;}html #hm_t_3717 .hm-t-img,html #hm_t_3717 .hm-t-img-title {display:block;margin:auto;}html #hm_t_3717 .hm-t-img {border:1px solid #cedbeb;}html #hm_t_3717 .hm-t-img img {border:none;}html #hm_t_3717 .hm-t-img-title {white-space:normal;margin-top:6px;}html #hm_t_3717 .hm-t-txt-wrapper {padding-left:20px;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAyCAMAAABMDIr8AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIE1hY2ludG9zaCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCNEMwQzIxMzExRjAxMUUzODhDMkE2MzkxMTc1ODQyMiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCNEMwQzIxNDExRjAxMUUzODhDMkE2MzkxMTc1ODQyMiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkI0QzBDMjExMTFGMDExRTM4OEMyQTYzOTExNzU4NDIyIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkI0QzBDMjEyMTFGMDExRTM4OEMyQTYzOTExNzU4NDIyIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+qPUs2wAAABtQTFRFDEqCAEF8DUqCwM7dwM3dDkuDDUuDAEB7////w7r9TAAAAAl0Uk5T//////////8AU094EgAAACtJREFUeNpiYAcCBgjBCCQYgSQDBxAML4KZlZWFAehNNhDBwMDCxMQMEGAA7HcF3baHdjUAAAAASUVORK5CYII=) no-repeat;*background-image:url(http://ecma.bdimg.com/holmes/t-list-styles.png);}html #hm_t_3717 .hm-t-txt {white-space:normal;}html #hm_t_3717 .hm-t-footer {position:relative;height:22px;}html #hm_t_3717 .hm-t-footer a {position:absolute;top:0;right:12px;font-family:arial,sans-serif;font-size:12px;color:#aeaeae;text-decoration:none;line-height:22px;}html #hm_t_3717 .hm-t-container {position:relative;border:1px solid #ccc;}html #hm_t_3717 .hm-t-header {padding-left:12px;text-align:left;border-bottom:1px solid #ccc;}html #hm_t_3717 .hm-t-container{background-color:#ffffff;border-color:#acacac;height:242px;width:640px;}html #hm_t_3717 .hm-t-header{background-color:#ffffff;color:#333333;font-family:arial,SimSun,sans-serif;font-size:16px;font-weight:bold;height:33px;line-height:33px;}html #hm_t_3717 .hm-t-item{list-style:square inside;}html #hm_t_3717 .hm-t-txt,html #hm_t_3717 .hm-t-img-title{color:#333333;font-family:arial,SimSun,sans-serif;font-size:14px;font-weight:normal;line-height:30px;text-decoration:none;}html #hm_t_3717 .hm-t-txt:active,html #hm_t_3717 .hm-t-img-title:active{color:#00008b;text-decoration:none;}html #hm_t_3717 .hm-t-txt:hover,html #hm_t_3717 .hm-t-img-title:hover{color:#00008b;text-decoration:underline;}</style><style>html #hm_t_3717 .hm-t-txt-wrapper{background-position:12px 13px;height:30px}</style><style>html #hm_t_3717 .hm-t-item-img{width:Infinity%;*width:Infinity%}html #hm_t_3717 .hm-t-item-txt{width:50%;*width:49.9%}</style><style>html #hm_t_3717 .hm-t-img{width:72px;height:72px}html #hm_t_3717 .hm-t-img-title{width:72px}html #hm_t_3717 .hm-t-list-img{margin:0 320px}</style><style>html #hm_t_3717 .hm-t-img-title{line-height:17px}</style><script src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/logger.js"></script><link href="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/bdsstyle.css" rel="stylesheet" type="text/css"><link type="text/css" rel="stylesheet" href="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/embed.default.css"></head>
+<body><iframe frameborder="0" style="display: none;"></iframe><div id="bdshare_s" style="display: block;"><iframe id="bdsIfr" style="position:absolute;display:none;z-index:9999;" frameborder="0"></iframe><div id="bdshare_l" style="display: none;"><div id="bdshare_l_c"><h6>分享到</h6><ul><li><a href="http://www.jb51.net/article/33718.htm#" class="bds_mshare mshare">一键分享</a></li><li><a href="http://www.jb51.net/article/33718.htm#" class="bds_qzone qqkj">QQ空间</a></li><li><a href="http://www.jb51.net/article/33718.htm#" class="bds_tsina xlwb">新浪微博</a></li><li><a href="http://www.jb51.net/article/33718.htm#" class="bds_bdysc bdysc">百度云收藏</a></li><li><a href="http://www.jb51.net/article/33718.htm#" class="bds_renren rrw">人人网</a></li><li><a href="http://www.jb51.net/article/33718.htm#" class="bds_tqq txwb">腾讯微博</a></li><li><a href="http://www.jb51.net/article/33718.htm#" class="bds_bdxc bdxc">百度相册</a></li><li><a href="http://www.jb51.net/article/33718.htm#" class="bds_kaixin001 kxw">开心网</a></li><li><a href="http://www.jb51.net/article/33718.htm#" class="bds_tqf txpy">腾讯朋友</a></li><li><a href="http://www.jb51.net/article/33718.htm#" class="bds_tieba bdtb">百度贴吧</a></li><li><a href="http://www.jb51.net/article/33718.htm#" class="bds_douban db">豆瓣网</a></li><li><a href="http://www.jb51.net/article/33718.htm#" class="bds_tsohu shwb">搜狐微博</a></li><li><a href="http://www.jb51.net/article/33718.htm#" class="bds_bdhome bdhome">百度新首页</a></li><li><a href="http://www.jb51.net/article/33718.htm#" class="bds_sqq sqq">QQ好友</a></li><li><a href="http://www.jb51.net/article/33718.htm#" class="bds_thx thx">和讯微博</a></li><li><a href="http://www.jb51.net/article/33718.htm#" class="bds_more">更多...</a></li></ul><p><a href="http://www.jb51.net/article/33718.htm#" class="goWebsite">百度分享</a></p></div></div></div>
+<div id="topnav">
+<div id="toptext">脚 本 之 家 www.jb51.net</div>
+<ul id="topnavlist">
+<script type="text/javascript" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/top.js" charset="gb2312"></script><li><a href="http://www.jb51.net/zt/" target="_blank" style="color:red">专题</a></li>
+<li><a href="http://sc.jb51.net/" target="_blank">素材下载</a></li>
+<li><a href="http://www.jb51.net/books/" target="_blank" style="color:red">电子书</a></li>
+<li><a href="http://www.jb51.net/softs/" target="_blank">软件下载</a></li>
+<li><a href="http://www.jb51.net/codes/" target="_blank">源码下载</a></li>
+<li><a href="http://s.jb51.net/" target="_blank">服务器常用软件</a></li>
+<li><a href="http://www.admin5.net/" target="_blank" style="color:red">a5交易</a></li>
+
+</ul>
+</div>
+<div id="dxy_logo">
+<div id="logo_l"><a href="http://www.jb51.net/" title="脚本之家" target="_blank"><img src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/logo.gif" alt="脚本之家"></a></div>
+<div id="logo_m"><script type="text/javascript" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/logo_m.js"></script><a href="http://www.zzidc.com/azt/20131210/index.html" target="_blank"><img src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/zzidc.gif" width="370" height="60"></a></div>
+<div id="logo_r"><script type="text/javascript" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/logo_r.js"></script><a href="http://www.51idc.com/index.html?origin=341162b0588a263c154b352c0966e6dd" target="_blank"><img src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/51idc_370.gif" width="370" height="60"></a></div>
+</div><!--导航开始-->
+<div id="nav_top">
+<ul>
+<li><a href="http://www.jb51.net/"><span>首页</span></a></li>
+<li><a href="http://www.jb51.net/web/" title="网页制作"><span>网页制作</span></a></li>
+<li><a href="http://www.jb51.net/list/index_96.htm" title="脚本专栏"><span>脚本专栏</span></a></li>
+<li><a href="http://www.jb51.net/list/index_1.htm" title="网络编程"><span>网络编程</span></a></li>
+<li><a href="http://www.jb51.net/list/index_104.htm" title="数据库"><span>数据库</span></a></li>
+<li><a href="http://www.jb51.net/jiaoben/" title="脚本下载"><span>脚本下载</span></a></li>
+<li><a href="http://www.jb51.net/cms/" title="cms使用教程"><span>CMS教程</span></a></li>
+<li><a href="http://www.jb51.net/books/" title="电子书籍"><span>电子书籍</span></a></li>
+<li><a href="http://www.jb51.net/pingmian/" title="平面设计"><span>平面设计</span></a></li>
+<li><a href="http://www.jb51.net/media/" title="媒体动画"><span>媒体动画</span></a></li>
+<li><a href="http://www.jb51.net/os/" title="操作系统"><span>操作系统</span></a></li>
+<li><a href="http://www.jb51.net/yunying/" title="网站运营"><span>网站运营</span></a></li>
+<li><a href="http://www.jb51.net/hack/" title="网络安全"><span>网络安全</span></a></li>
+</ul>
+</div><!--导航结束-->
+<div class="blank3"></div>
+<div class="subnav">
+<ul><li><a href="http://www.jb51.net/list/list_34_1.htm" title="基础应用">基础应用</a></li>
+<li><a href="http://www.jb51.net/list/list_76_1.htm" title="实用技巧">实用技巧</a></li>
+<li><a href="http://www.jb51.net/list/list_80_1.htm" title="自学过程">自学过程</a></li>
+</ul>
+</div>
+<div class="blank3"></div>
+<div class="search">
+<ul><li class="search-hot"><span>特色栏目：</span>
+<a href="http://www.jb51.net/list/list_114_1.htm" target="_blank">vbscript</a> 
+<a href="http://www.jb51.net/list/list_6_1.htm" target="_blank">正则表达式</a> 
+<a href="http://www.jb51.net/list/list_3_1.htm" target="_blank">javascript</a>
+<a href="http://www.jb51.net/list/list_106_1.htm" target="_blank">批处理</a>
+<a href="http://s.jb51.net/">服务器软件</a> 
+<a href="http://sc.jb51.net/?txt" target="_blank" style="color:red">素材下载</a> 
+</li><li class="search-box">
+<form action="http://so.jb51.net/cse/search" target="_blank">
+    <input type="hidden" name="s" value="10520733385329581432">
+    <input type="hidden" name="ie" value="gbk">
+    <input type="text" name="q" style="width:300px; height:20px">
+    <input type="submit" value="搜索">
+</form></li></ul>
+</div>
+<div class="blank3"></div>
+<div class="dxy_main">
+<script type="text/javascript">var lmname="ASP.NET"; var cpro_id = 'u336546';</script><script src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/c.js" type="text/javascript"></script><div id="BAIDU_DUP_wrapper_u336546_0"><iframe width="960" height="90" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/ecom.htm" align="center,center" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" allowtransparency="true"></iframe></div><script charset="utf-8" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/ecom"></script>
+</div>
+<div class="blank3"></div>
+<div id="tonglan1"><script type="text/javascript" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/tonglan1.js"></script><div id="txtlink"><ul><li><a href="http://www.china-cdn.net/" target="_blank"><span style="color:red;">加速中国云 专业CDN加速  稳定  专业</span></a></li><li><a href="http://www.zoneidc.com/" target="_blank"><span style="color:red;">纵横数据 香港空间38元 1G云主机70元</span></a></li><li><a href="http://www.cyidc.cc/" target="_blank"><span style="color:red;">畅游网络 百独服务器 包跑满 998元</span></a></li><li><a href="http://www.139w.com/100m.asp" target="_blank"><span style="color:red;">鼎点网络百兆独享服务器仅需999元</span></a></li><li><a href="http://www.tuidc.com/" target="_blank"><span style="color:blue;">服务器租用/托管-域名空间/认准腾佑科技</span></a></li><li><a href="http://www.vzidc.com/" target="_blank"><span style="color:blue;">微子网络 湛江双线高防 抗15G 700元起</span></a></li><li><a href="http://www.jjidc.com/" target="_blank"><span style="color:blue;">九九数据 — 工信部认可正规资质IDC接入商</span></a></li><li><a href="http://www.wdw6.com/" target="_blank"><span style="color:blue;">服务器租用 199/月起</span></a></li><li><a href="http://www.33ip.com/" target="_blank"><span style="color:red;">枫信科技-江苏双线10M保证-399/元</span></a></li><li><a href="http://www.163cdn.com/" target="_blank"><span style="color:red;">免备案国内虚拟主机-163cdn</span></a></li><li><a href="http://www.enkj.com/adv/" target="_blank"><span style="color:red;">BGP四线 亿恩1U服务器托管3999元/年</span></a></li><li><a href="http://www.powercdn.com/" target="_blank"><span style="color:red;">购买cdn一定要看看powercdn</span></a></li><li><a href="http://www.amazon.cn/gp/search?ie=UTF8&keywords=%E8%AE%A1%E7%AE%97%E6%9C%BA&tag=reterry&index=books&linkCode=ur2&camp=536&creative=3200" target="_blank"><span style="color:blue;">低价电脑书籍折扣购买地址</span></a></li><li><a href="http://www.ahtop.cn/user?jb51" target="_blank"><span style="color:blue;">四核15M独享服务器特价188元/月</span></a></li><li><a href="http://www.7b.cn/" target="_blank"><span style="color:blue;">【7B链】买卖友情链接，日付交易安全快</span></a></li><li><a href="http://www.verycloud.cn/" target="_blank"><span style="color:blue;">VeryCloud云主机，仅需29元，抢疯了！</span></a></li></ul><div class="clear"></div></div><div class="blank2"></div><div class="blank2"></div><div class="topimg"><ul><li><a href="http://www.west263.com/services/CloudHost/?ads=jb512013" target="_blank"><img alt="" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/west263_237.gif" width="237" height="60"></a></li><li><a href="http://www.sitestar.cn/" target="_blank"><img alt="" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/sitestar.gif" width="237" height="60"></a></li><li><a href="http://www.enkj.com/adv/" target="_blank"><img alt="" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/enkj_237.gif" width="237" height="60"></a></li><li><a href="http://www.51web.com/" target="_blank"><img src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/51web.gif" width="237" height="60"></a></li></ul></div><div class="blank2"></div></div>
+<div class="blank3"></div>
+<div class="dxy_main">
+<div class="dxy_main_l">
+<div id="art_con">
+<div id="daohang">页面导航：  <a href="http://www.jb51.net/">首页</a> → <a href="http://www.jb51.net/list/index_1.htm" title="网络编程">网络编程</a> → <a href="http://www.jb51.net/list/list_21_1.htm" title="ASP.NET">ASP.NET</a> → <a href="http://www.jb51.net/list/list_76_1.htm" title="实用技巧">实用技巧</a> → 正文内容 Asp.net内置对象 Server对象<div class="blank3"></div></div>
+<div class="blank3"></div>
+<h1>Asp.net内置对象之Server对象(概述及应用)</h1>
+<div id="title_ad1"><script type="text/javascript" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/bc_txt_1.js"></script><script src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/c(1).js" type="text/javascript"></script><div id="BAIDU_DUP_wrapper_u982191_0"><iframe width="468" height="15" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/ecom(13).htm" align="center,center" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" allowtransparency="true"></iframe></div><script charset="utf-8" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/ecom(1)"></script></div>
+<div id="art_info">
+发布：whsnow  字体：[<a href="javascript:turnbig()">增加</a> <a href="javascript:turnsmall()">减小</a>] 类型：转载 
+</div><!--end art_info-->
+<div class="blank3"></div>
+<div id="art_demo">Server对象提供对服务器上的方法和属性的访问以及进行HTML编码的功能,本文主要围绕server对象介绍详细功能及常用属性和主要方法，感兴趣的朋友可以了解下，或许对你学习server对象有所帮助</div>
+<div class="blank3"></div>
+<div id="con_all">
+<div id="con_da1"><script type="text/javascript" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/bc_l.js"></script><script type="text/javascript" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/show_ads.js"></script><ins style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;"></iframe></ins></ins></div>
+<div id="con_da8"><script type="text/javascript" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/bc_r.js"></script><script src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/c(1).js" type="text/javascript"></script><div id="BAIDU_DUP_wrapper_u91397_0"><iframe width="300" height="250" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/ecom(8).htm" align="center,center" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" allowtransparency="true"></iframe></div><script charset="utf-8" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/ecom(2)"></script></div>
+</div>
+<div id="art_content">
+<!--NEWSZW_HZH_BEGIN-->
+<p><strong>一、了解Server对象</strong></p>
+<p>Server对象提供对服务器上的方法和属性的访问以及进行HTML编码的功能。这些功能分别由Server对象相应的方法和属性完成。</p>
+<p><strong>二、Server对象的常用属性</strong></p>
+<p>(1).MachineName<br>(2).ScriptTimeout：属性用于设置脚本程序执行的时间，适当地设置脚本程序的ScriptTimeout可以提高整个Web应用程序的效率。语法如下：<br>Server.ScriptTimeout=time;(以s（秒）为单位)<br><br></p>
+<p>ScriptTimeout属性的最短时间默认为90 s。对于一些逻辑简单、活动内容较少的脚本程序该值已经足够。但在执行一些活动内容较多的脚本程序时，就显得小了些。比如访问数据库的脚本程序，必须设置较大的ScriptTimeout属性值，否则脚本程序就不能正常执行完毕。<br></p><div class="codetitle"><span style="CURSOR: pointer" onclick="doCopy(&#39;code67457&#39;)"><u>复制代码</u></span> 代码如下:</div><div class="codebody" id="code67457"><br>Response.Write("服务器机器名：" + Server.MachineName);//服务器机器名：IBM&nbsp;<br> Response.Write("超时时间为：" + Server.ScriptTimeout);//超时时间为：30000000<br></div><br><strong>三、Server对象的主要方法</strong><p></p>
+<p><img alt="最恶心的就是网速差，机器卡" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/2013020213084114.jpg"></p>
+<p><strong>四、Server对象的常见应用</strong>：<br><br>(1).执行其他ASP.NET网页</p>
+<p>使用Server对象的Execute方法可以在当前页面中执行同一Web服务器上的另一页面，当该页面执行完毕后，控制流程将重新返回到原页面中发出Server.Execute方法调用的位置。被调用的页面应是一个.aspx网页，因此，通过Server.Execute方法调用可以将一个.aspx页面的输出结果插入到另一个.aspx页面中。Server.Execute方法语法如下：<br>Server.Execute (path)<br><br>在WebForm1页面中：<br></p><div class="codetitle"><span style="CURSOR: pointer" onclick="doCopy(&#39;code59171&#39;)"><u>复制代码</u></span> 代码如下:</div><div class="codebody" id="code59171">&nbsp;<br>protected void Page_Load(object sender, System.EventArgs e) <br>{ <br>Response.Write("&lt;P&gt;调用 Execute 方法之前&lt;/P&gt;"); <br>Server.Execute("Page2.aspx");//使用Server.Execute(Path)执行其他ASP.NET页面。这里将Page2.aspx的输出结果插入到当前页面 <br>//Server.Execute("http://www.163.com");//程序不能执行，必须是相对路径 <br>Response.Write("&lt;P&gt;调用 Execute 方法之后&lt;/P&gt;"); <br>}<br></div><br>在page.aspx页面中<br><div class="codetitle"><span style="CURSOR: pointer" onclick="doCopy(&#39;code90260&#39;)"><u>复制代码</u></span> 代码如下:</div><div class="codebody" id="code90260">&nbsp;<br>protected void Page_Load(object sender, System.EventArgs e) <br>{ <br>Response.Write("这是page2.aspx网页"); <br>}<br></div><br>则运行结果为：<br><img alt="" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/2013020213084115.jpg"><p></p>
+<p>(2).将流程控制转移到其他ASP.NET网页</p>
+<p>使用Server对象的Transfer方法可以终止当前页的执行，并将执行流程转入同一Web服务器的另一个页面。被调用的页面应是一个.aspx页面，在页面跳转过程中，Request等对象保存的信息不变，这意味着从页面A跳转到页面B后可以继续使用页面A中提交的数据。此外，由于Server.Transfer方法调用是在服务器端进行的，客户端浏览器并不知道服务器端已经执行了一次页面跳转，所以实现页面跳转后浏览器地址栏仍将保存页面A的URL信息，这样还可以避免不必要的网络通信，从而获得更好的性能和浏览效果。Server.Transfer方法如下：<br>Server.Transfer(path)<br><br><strong>提示</strong>：参数path指定在服务器上要执行的新页的URL路径，在此URL后面也可以附加一些查询字符串变量的名称/值对<br>在WebForm1页面中： <br></p><div class="codetitle"><span style="CURSOR: pointer" onclick="doCopy(&#39;code29781&#39;)"><u>复制代码</u></span> 代码如下:</div><div class="codebody" id="code29781"><br>protected void Page_Load(object sender, System.EventArgs e) <br>{ <br>Response.Write("&lt;P&gt;调用 Transfer 方法之前&lt;/P&gt;"); <br>//Response.Redirect("Page2.aspx"); <br>Server.Transfer("Page2.aspx"); <br>//使用Server.Transfer(path)终止当前页的执行，所以执行到这一行就终止了，也就是说后面的不再执行； <br>//然后将执行流程转入同一Web服务器的另一个页面。也就是page2.aspx页面中了。在页面跳转过程中，Request等对象保存的信息不变 <br>//这意味着从页面A跳转到页面B后可以继续使用页面A中提交的数据：那么在page2.apsx页面中就能输出Server.Transfer(path)之前的数据了。 <br>//Server.Transfer("www.163.com");//这样不行，只能是虚拟路径 <br>Response.Write("&lt;P&gt;调用 Transfer 方法之后&lt;/P&gt;"); <br>}<br></div><br>在Page2页面： <br><div class="codetitle"><span style="CURSOR: pointer" onclick="doCopy(&#39;code11218&#39;)"><u>复制代码</u></span> 代码如下:</div><div class="codebody" id="code11218"><br>protected void Page_Load(object sender, System.EventArgs e) <br>{ <br>Response.Write("&lt;P&gt;这是 Page2.aspx 的执行结果&lt;/P&gt;"); <br>}<br></div><br>则运行结果：<br><img alt="" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/2013020213084116.jpg"><p></p>
+<p>如果我们换成了Response.Redirect("Page2.aspx");则只能实现页面跳转功能了。<br><strong>引述：ASP.NET页面传值的三种方式<br></strong></p><div class="codetitle"><span style="CURSOR: pointer" onclick="doCopy(&#39;code93465&#39;)"><u>复制代码</u></span> 代码如下:</div><div class="codebody" id="code93465"><br>(1).使用QueryString <br>(2).使用Session变量 <br>(3).使用Server.Transfer <br></div><br>(3).将虚拟路径转换为物理文件路径<p></p>
+<p>在Web窗体页中经常需要访问文件或文件夹，此时往往要求将虚拟路径转换为物理文件路径。MapPath方法将指定的相对或虚拟路径映射到服务器上相应的物理目录上。Web服务器中的多个Web应用程序一般都按照各自不同的功能存放于不同的目录中。</p>
+<p>使用虚拟目录后，客户端仍然可以利用虚拟路径存取网页，这就是互联网用户在浏览器中常见的网页的URL，但此时用户无法知道该网页的实际路径（实际存放位置）。但如果确实需要知道某网页文件的实际路径，则可利用MapPath方法。MapPath方法的语法如下：</p>
+<p>Server.MapPath(Path)</p>
+<p>注意：其中参数Path表示指定要映射物理目录的相对或虚拟路径。执行MapPath方法后，将返回与path相对应的物理文件路径。<br><strong>解惑：相对路径、绝对路径、物理路径、虚拟路径<br></strong></p><div class="codetitle"><span style="CURSOR: pointer" onclick="doCopy(&#39;code20168&#39;)"><u>复制代码</u></span> 代码如下:</div><div class="codebody" id="code20168"><br>(1).相对路径：相对当前目录的路径、或相对某个目录的路径，这里主要体现“相对”的概念 <br>(2).绝对路径：从网站的根路径为最高层开始的路径，如：C:\Website\web1\index.html <br>(3).物理路径：实际磁盘中的路径，可以是相对路径、也可以是绝对路径 <br>(4).虚拟路径：是服务器映射出来的路径，如/myweb <br><br>(这里引用了CSDN博友：flytosea8的解释：链接地址：http://bbs.csdn.net/topics/70115404) <br><br><br>虚拟路径、物理路径 <br>用IIS举个例子： <br>WEB服务目录是d:\test <br>那么用HTTP访问网站根目录的时候，其实访问的是d:\test,那么其中虚拟路径就是\（根），物理路径就是d:\test <br><br>一般虚拟路径、物理路径的提法在WEB、FTP服务中比较多见。 <br><br>相对路径和绝对路径就比较广泛了，哪儿都看得到 <br>相对路径：比如D:\TEST1\TEST2\TEST3 <br>那么TEST2是TEST1的下级路径，TEST2又是TEST3的上级路径，所以上级路径或者下级路径都是相对而言的。一般上级路径可以用..来表示，当前路径可以用.来表示。 <br>绝对路径：比如c:\根路径都是绝对了，任何路径相对于根路径都有一个绝对的最近的路径，也是绝对路径。 <br><br>如果你想想别人指路的话，就可以悟出什么是相对的，什么是绝对的 <br>相对的指路方法：从“这儿”向前走，右拐就到了 <br>绝对的指路方法：汽车站向东100米（如果汽车站是绝对的位置），绝对的指路方法不依赖于指路的人在什么地方 <br><br></div><br><div class="codetitle"><span style="CURSOR: pointer" onclick="doCopy(&#39;code40058&#39;)"><u>复制代码</u></span> 代码如下:</div><div class="codebody" id="code40058"><br>protected void Page_Load(object sender, System.EventArgs e) <br>{ <br>Response.Write("Web站点的根目录为："+Server.MapPath("/")+"&lt;br&gt;"); <br>Response.Write("当前虚拟目录的实际路径为："+Server.MapPath("./")+"&lt;br&gt;");//E:\asp.net\Server对象\code\ <br>Response.Write("当前网页的实际路径为："+Server.MapPath(Request.FilePath)+"&lt;br&gt;");//E:\asp.net\Server对象\code\WebForm1.aspx <br>Response.Write("当前网页的实际路径为："+Server.MapPath("webform2.aspx")+"&lt;br&gt;");//E:\asp.net\Server对象\code\WebForm2.aspx <br><br>}<br></div><br>(4).字符串的编码与解码<p></p>
+<p>在某些情况下，可能需要在网页中显示“段落标记&lt;p&gt;”之类的内容，而不希望浏览器将其中的&lt;p&gt;解释为HTML语言中的段落标记；在上述场合，应当调用Server对象的HtmlEncode方法对要在浏览器中显示的字符串进行编码<br>有时候，在传递参数时，是将数据附在网址后面传递，但是如果遇到一些如“#”等特殊字符的时候，就会读不到这些字符后面的参数。所以需要在传递特殊字符的时候，需先将要传递的内容先以UrlEncode编码，这样才可以保证所传递的值可以被顺利读到。<br>另外有些服务器对中文不能很好的支持，这时候也需要利用UrlEncode对其进行编码，以被服务器所识别。<br></p><div class="codetitle"><span style="CURSOR: pointer" onclick="doCopy(&#39;code6946&#39;)"><u>复制代码</u></span> 代码如下:</div><div class="codebody" id="code6946"><br>HtmlEncode||HtmlDecode： <br>protected void Page_Load(object sender, System.EventArgs e) <br>{ <br>Response.Write(Server.HtmlEncode("粗体标记为：&lt;B&gt;粗体文字&lt;/B&gt;"));//HtmlEncode对字符串进行HTML编码并返回编码后的字符串，所以这个原样输出 <br>Response.Write("&lt;br&gt;"); <br>Response.Write(Server.HtmlDecode("粗体标记为：&lt;B&gt;粗体文字&lt;/B&gt;"));//HtmlDecode对字符串进行HTML解码并返回解码后的字符串，所以这个后面加粗 <br>}<br></div><br><div class="codetitle"><span style="CURSOR: pointer" onclick="doCopy(&#39;code6282&#39;)"><u>复制代码</u></span> 代码如下:</div><div class="codebody" id="code6282"><br>UrlEncode||UrlDecode： <br>protected void Page_Load(object sender, System.EventArgs e) <br>{ <br>Response.Write("&lt;A href='1.aspx?data=" + Server.UrlDecode("name@#163.com") + "'&gt;没有编码的参数内容&lt;/A&gt;&lt;br&gt;");//在1.aspx页面输出：name@ <br>Response.Write("&lt;A href='1.aspx?data=name@#163.com'&gt;没有编码的参数内容&lt;/A&gt;&lt;br&gt;");//在1.aspx页面输出：name@ <br>Response.Write("&lt;A href='1.aspx?data=" + Server.UrlEncode("name@#163.com") + "'&gt;编码的参数内容&lt;/A&gt;&lt;br&gt;");//在1.aspx页面输出：name@#163.com <br>Response.Write(Server.UrlDecode("name@#163.com"));//对字符串进行URL解码，这里输出：name@#163.com <br>Response.Write("&lt;br&gt;"); <br>Response.Write(Server.UrlEncode("name@#163.com"));//对字符串进行URL编码，这里输出：name%40%23163.com <br>Response.Write("&lt;br&gt;"); <br>Response.Write(Server.UrlDecode("中文"));//输出：中文 <br>Response.Write("&lt;br&gt;"); <br>Response.Write( Server.UrlEncode("中文"));//输出：%e4%b8%ad%e6%96%87 <br>Response.Write("&lt;br&gt;"); <br>Response.Write(Server.UrlEncode("english"));//输出：english <br>Response.Write("&lt;br&gt;"); <br>Response.Write(Server.UrlDecode("english"));//输出：english <br>}<br></div><p></p>
+<!--NEWSZW_HZH_END-->
+<div id="numstyle"></div>
+<div id="art_xg">
+
+<div id="con_da2">
+<script type="text/javascript" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/baidu580.js"></script><script type="text/javascript" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/c(1).js"></script><div id="BAIDU_DUP_wrapper_u776243_0"><iframe width="336" height="280" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/ecom(9).htm" align="center,center" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" allowtransparency="true"></iframe></div><script charset="utf-8" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/ecom(3)"></script>
+</div>
+</div>
+<div id="con_bo"></div>
+</div>
+<div class="blank3"></div>
+<div id="shoucang">
+    <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+        <a class="bds_qzone" title="分享到QQ空间" href="http://www.jb51.net/article/33718.htm#">QQ空间</a>
+        <a class="bds_tsina" title="分享到新浪微博" href="http://www.jb51.net/article/33718.htm#">新浪微博</a>
+        <a class="bds_tqq" title="分享到腾讯微博" href="http://www.jb51.net/article/33718.htm#">腾讯微博</a>
+        <a class="bds_tsohu" title="分享到搜狐微博" href="http://www.jb51.net/article/33718.htm#">搜狐微博</a>
+        <a class="bds_renren" title="分享到人人网" href="http://www.jb51.net/article/33718.htm#">人人网</a>
+        <a class="bds_kaixin001" title="分享到开心网" href="http://www.jb51.net/article/33718.htm#">开心网</a>
+        <a class="bds_baidu" title="分享到百度搜藏" href="http://www.jb51.net/article/33718.htm#">百度搜藏</a>
+        <span class="bds_more">更多</span>
+		<a class="shareCount" href="http://www.jb51.net/article/33718.htm#" title="累计分享0次">0</a>
+    </div>
+</div>
+<div class="blank3"></div>
+<div class="tags">
+<strong>Tags：</strong><a href="http://img.jb51.net/tag/%C4%DA%D6%C3%B6%D4%CF%F3/1.htm" target="_blank" title="搜索关于内置对象的文章">内置对象</a> <a href="http://img.jb51.net/tag/Server/1.htm" target="_blank" title="搜索关于Server的文章">Server</a> 
+</div>
+<div class="blank3"></div>
+<div class="con_ff">
+<a title="复制本文链接发给你QQ/MSN上的好友" href="javascript: copyUserHomeToClipBoard()" rel="nofollow" class="button_link">复制链接</a><a href="javascript:addBookmark(document.title,document.location.href)" class="button_link">收藏本文</a><a href="javascript:doPrint();" class="button_link">打印本文</a><a href="javascript:closeWindow()" class="button_link">关闭本文</a><a href="http://www.jb51.net/index.htm" class="button_link">返回首页</a>
+</div>
+<div id="prenext">
+<div id="prv">上一篇：<a href="http://www.jb51.net/article/33717.htm" title="Cookies的各方面知识(基础/高级)深度了解">Cookies的各方面知识(基础/高级)深度了解</a></div><div id="next">下一篇：<a href="http://www.jb51.net/article/47848.htm">C# 判断两张图片是否一致的快速方法</a></div>
+</div>
+<div class="bc_bot_ad">
+<div class="fl300"><script type="text/javascript" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/bot_l300.js"></script><script type="text/javascript" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/show_ads.js"></script><ins style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_1_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;"></iframe></ins></ins></div>
+<div class="fr300"><script type="text/javascript" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/bot_r300.js"></script><script src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/c(1).js" type="text/javascript"></script><div id="BAIDU_DUP_wrapper_u1443013_0"><iframe width="300" height="250" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/ecom(10).htm" align="center,center" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" allowtransparency="true"></iframe></div><script charset="utf-8" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/ecom(4)"></script></div>
+<div class="clear"></div>
+</div>
+<div class="blank3"></div>
+<div id="relatedarticle">
+<h2>相关文章</h2>
+<ul><li><a href="http://www.jb51.net/article/36055.htm" title="Asp.net GridView使用大全(分页实现)" target="_blank">Asp.net GridView使用大全(分页实现)</a></li><li><a href="http://www.jb51.net/article/33732.htm" title="Asp.net在页面间传递大量数据(数据表)建议采用的方法" target="_blank">Asp.net在页面间传递大量数据(数据表)建议采用的</a></li><li><a href="http://www.jb51.net/article/9431.htm" title="ASP.NET用户控件技术" target="_blank">ASP.NET用户控件技术</a></li><li><a href="http://www.jb51.net/article/18304.htm" title="ASP.net Menu控件在Google Chrome和Safari浏览器下显示错位的解决办法" target="_blank">ASP.net Menu控件在Google Chrome和Safari浏览器</a></li><li><a href="http://www.jb51.net/article/12495.htm" title="asp.net下实现URL重写技术的代码" target="_blank">asp.net下实现URL重写技术的代码</a></li><li><a href="http://www.jb51.net/article/32946.htm" title=".NET中基于事件的异步模式-EAP" target="_blank">.NET中基于事件的异步模式-EAP</a></li><li><a href="http://www.jb51.net/article/29185.htm" title="ASP.NET编译执行常见错误及解决方法汇总" target="_blank">ASP.NET编译执行常见错误及解决方法汇总</a></li><li><a href="http://www.jb51.net/article/19201.htm" title="asp.net Linq To Xml上手Descendants、Elements遍历节点" target="_blank">asp.net Linq To Xml上手Descendants、Elements遍</a></li></ul>
+<div class="clear"></div></div>
+<div class="sm"><script type="text/javascript" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/sm.js" charset="gb2312"></script><b>友情提醒</b>：本站文件的解压密码：www.jb51.net (请使用最新的winrar)
+<a href="http://www.now.cn/?now_qing_51jbbc" target="_blank" title="now.cn域名提供商"><img src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/now468.gif" width="468" height="60"></a></div>
+<div id="comments">
+<h2>文章评论</h2>
+<div id="commentList">
+<div class="ds-thread" data-category="" data-thread-key="art_33718" data-title="Asp.net内置对象之Server对象(概述及应用)" data-author-key="" data-url="http://www.jb51.net/article/33718.htm" id="ds-thread"><div id="ds-reset"><div class="ds-meta" style="display: none;"><a href="javascript:void(0)" class="ds-like-thread-button ds-rounded"><span class="ds-icon ds-icon-heart"></span> <span class="ds-thread-like-text">喜欢</span><span class="ds-thread-cancel-like">取消喜欢</span></a><span class="ds-like-panel"></span></div><a name="respond"></a><div class="ds-login-buttons"><p>社交帐号登录:</p><div class="ds-social-links"><ul class="ds-service-list"><li><a href="http://jb51.duoshuo.com/login/weibo/" rel="nofollow" class="ds-service-link ds-weibo">微博</a></li><li><a href="http://jb51.duoshuo.com/login/qq/" rel="nofollow" class="ds-service-link ds-qq">QQ</a></li><li><a href="http://jb51.duoshuo.com/login/renren/" rel="nofollow" class="ds-service-link ds-renren">人人</a></li><li><a href="http://jb51.duoshuo.com/login/douban/" rel="nofollow" class="ds-service-link ds-douban">豆瓣</a></li><li><a class="ds-more-services" href="javascript:void(0)">更多&#187;</a></li></ul><ul class="ds-service-list ds-additional-services"><li><a href="http://jb51.duoshuo.com/login/kaixin/" rel="nofollow" class="ds-service-link ds-kaixin">开心</a></li><li><a href="http://jb51.duoshuo.com/login/netease/" rel="nofollow" class="ds-service-link ds-netease">网易</a></li><li><a href="http://jb51.duoshuo.com/login/sohu/" rel="nofollow" class="ds-service-link ds-sohu">搜狐</a></li><li><a href="http://jb51.duoshuo.com/login/baidu/" rel="nofollow" class="ds-service-link ds-baidu">百度</a></li><li><a href="http://jb51.duoshuo.com/login/google/" rel="nofollow" class="ds-service-link ds-google">谷歌</a></li></ul></div></div><div class="ds-replybox"><a class="ds-avatar" href="javascript:void(0);" onclick="return false"><img src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/noavatar_default.png" alt=""></a><form method="post"><input type="hidden" name="thread_id" value="1257135415710823997">
+<input type="hidden" name="parent_id" value="">
+<input type="hidden" name="nonce" value="5320661fcdb1c"><div class="ds-textarea-wrapper ds-rounded-top"><textarea name="message" title="Ctrl+Enter快捷提交" placeholder="说点什么吧…"></textarea><pre class="ds-hidden-text"></pre></div><div class="ds-post-toolbar"><div class="ds-post-options ds-gradient-bg"><span class="ds-sync"></span></div><button class="ds-post-button" type="submit">发布</button><div class="ds-toolbar-buttons"><a class="ds-toolbar-button ds-add-emote" title="插入表情"></a></div></div></form></div><div class="ds-comments-info"><div class="ds-sort"><a class="ds-order-desc">最新</a><a class="ds-order-asc ds-current">最早</a><a class="ds-order-hot">最热</a></div><ul class="ds-comments-tabs"><li class="ds-tab"><a class="ds-comments-tab-duoshuo ds-current" href="javascript:void(0);">评论</a></li></ul></div><ul class="ds-comments"><li class="ds-post ds-post-placeholder">还没有评论，沙发等你来抢</li></ul><div class="ds-paginator" style="display: none;"><div class="ds-border"></div><a data-page="1" href="javascript:void(0);" class="ds-current">1</a></div><p class="ds-powered-by"><a href="http://duoshuo.com/" target="_blank" rel="nofollow">脚本之家正在使用多说</a></p></div></div>
+</div>
+</div>
+<div class="blank3"></div>
+<div id="hm_t_3717"><div class="hm-t-container" style="height: 248px;"><div class="hm-t-main">
+<div class="hm-t-header">猜您喜欢</div>
+<ul class="hm-t-list hm-t-list-txt">
+<li class="hm-t-item hm-t-item-txt">
+<div class="hm-t-txt-wrapper">
+<a class="hm-t-txt" href="http://www.jb51.net/article/18620.htm" target="_blank" title="ASP.NET 路径问题的解决方法" data-pos="0">ASP.NET 路径问题的解决方法</a>
+</div>
+</li>
+<li class="hm-t-item hm-t-item-txt">
+<div class="hm-t-txt-wrapper">
+<a class="hm-t-txt" href="http://www.jb51.net/article/9494.htm" target="_blank" title="C# 生成高质量缩略图程序—终极算法" data-pos="1">C# 生成高质量缩略图程序—终极算法</a>
+</div>
+</li>
+<li class="hm-t-item hm-t-item-txt">
+<div class="hm-t-txt-wrapper">
+<a class="hm-t-txt" href="http://www.jb51.net/article/39737.htm" target="_blank" title="jquery 滚动条事件简单实例" data-pos="2">jquery 滚动条事件简单实例</a>
+</div>
+</li>
+<li class="hm-t-item hm-t-item-txt">
+<div class="hm-t-txt-wrapper">
+<a class="hm-t-txt" href="http://www.jb51.net/article/5897.htm" target="_blank" title="有关Server.Mappath详细接触" data-pos="3">有关Server.Mappath详细接触</a>
+</div>
+</li>
+<li class="hm-t-item hm-t-item-txt">
+<div class="hm-t-txt-wrapper">
+<a class="hm-t-txt" href="http://www.jb51.net/article/18622.htm" target="_blank" title="ASP.net 路径问题 详细说明" data-pos="4">ASP.net 路径问题 详细说明</a>
+</div>
+</li>
+<li class="hm-t-item hm-t-item-txt">
+<div class="hm-t-txt-wrapper">
+<a class="hm-t-txt" href="http://www.jb51.net/article/28538.htm" target="_blank" title="ASP.NET(C#)实现一次性动态上传多张图片的代码（多个文件）" data-pos="5">ASP.NET(C#)实现一次性动态上传多张图片的代码（多个文件）</a>
+</div>
+</li>
+<li class="hm-t-item hm-t-item-txt">
+<div class="hm-t-txt-wrapper">
+<a class="hm-t-txt" href="http://www.jb51.net/article/33182.htm" target="_blank" title="FileUpload上传图片前实现图片预览功能(附演示动画)" data-pos="6">FileUpload上传图片前实现图片预览功能(附演示动画)</a>
+</div>
+</li>
+<li class="hm-t-item hm-t-item-txt">
+<div class="hm-t-txt-wrapper">
+<a class="hm-t-txt" href="http://www.jb51.net/article/17799.htm" target="_blank" title="c# 多线程编程 入门篇" data-pos="7">c# 多线程编程 入门篇</a>
+</div>
+</li>
+<li class="hm-t-item hm-t-item-txt">
+<div class="hm-t-txt-wrapper">
+<a class="hm-t-txt" href="http://www.jb51.net/article/33716.htm" target="_blank" title="Asp.net内置对象之Request对象(概述及应用)" data-pos="8">Asp.net内置对象之Request对象(概述及应用)</a>
+</div>
+</li>
+<li class="hm-t-item hm-t-item-txt">
+<div class="hm-t-txt-wrapper">
+<a class="hm-t-txt" href="http://www.jb51.net/article/21046.htm" target="_blank" title="asp.net(c#)网页跳转七种方法小结" data-pos="9">asp.net(c#)网页跳转七种方法小结</a>
+</div>
+</li>
+<li class="hm-t-item hm-t-item-txt">
+<div class="hm-t-txt-wrapper">
+<a class="hm-t-txt" href="http://www.jb51.net/article/34798.htm" target="_blank" title="C#页面之间跳转功能的小结" data-pos="10">C#页面之间跳转功能的小结</a>
+</div>
+</li>
+<li class="hm-t-item hm-t-item-txt">
+<div class="hm-t-txt-wrapper">
+<a class="hm-t-txt" href="http://www.jb51.net/article/16835.htm" target="_blank" title="ASP.NET 重定向的几种方法小结" data-pos="11">ASP.NET 重定向的几种方法小结</a>
+</div>
+</li>
+</ul>
+<div class="hm-t-footer"><a href="http://tuijian.baidu.com/" target="_blank">百度推荐</a></div>
+</div></div></div>
+<div class="blank3"></div>
+</div>
+</div><!--end dxy_mainl-->
+<div class="dxy_main_r">
+<div class="rbg" id="art_1"><script src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/r_1.js"></script><script type="text/javascript" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/show_ads.js"></script><ins style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_2_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;"></iframe></ins></ins></div>
+<div class="blank3"></div>
+<div class="r_title"><h6>最 近 更 新</h6></div>
+<div class="rightContent">
+<ul><li><a href="http://www.jb51.net/article/33447.htm" title="JavaScript用JQuery呼叫Server端方法实现代码与参考语法" target="_blank">JavaScript用JQuery呼叫Server端方法实现</a></li><li><a href="http://www.jb51.net/article/33167.htm" title=".NET中的 类型转换深入理解" target="_blank">.NET中的 类型转换深入理解</a></li><li><a href="http://www.jb51.net/article/16419.htm" title="asp.net 获取机器硬件信息(cpu频率、磁盘可用空间、内存容量等)" target="_blank">asp.net 获取机器硬件信息(cpu频率、磁盘</a></li><li><a href="http://www.jb51.net/article/1275.htm" title="ASP.NET技巧：做个DataList可分页的数据源" target="_blank">ASP.NET技巧：做个DataList可分页的数据源</a></li><li><a href="http://www.jb51.net/article/35413.htm" title="Gridview的链接和删除点击提示的问题探讨" target="_blank">Gridview的链接和删除点击提示的问题探讨</a></li><li><a href="http://www.jb51.net/article/45086.htm" title="ASP.NET 程序中删除文件夹导致session失效问题的解决办法分享" target="_blank">ASP.NET 程序中删除文件夹导致session失效</a></li><li><a href="http://www.jb51.net/article/23215.htm" title="asp.net 服务器控件的 ID,ClientID,UniqueID 的区别" target="_blank">asp.net 服务器控件的 ID,ClientID,Uniqu</a></li><li><a href="http://www.jb51.net/article/17262.htm" title="从外部的js文件中获取ASPX页面的控件ClientID" target="_blank">从外部的js文件中获取ASPX页面的控件Clie</a></li><li><a href="http://www.jb51.net/article/32723.htm" title="Ibatis.net结合oracle批量删除实现代码" target="_blank">Ibatis.net结合oracle批量删除实现代码</a></li><li><a href="http://www.jb51.net/article/44162.htm" title=".net重启iis线程池和iis站点程序代码分享" target="_blank">.net重启iis线程池和iis站点程序代码分享</a></li></ul>
+</div>
+<div class="blank3"></div>
+<div id="art_2"><script src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/r_2.js"></script><a href="http://www.021.net/" target="_blank"><img alt="" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/zs_300.gif"></a><div class="blank3"></div><script src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/c(1).js" type="text/javascript"></script><div id="BAIDU_DUP_wrapper_u1196000_0"><iframe width="300" height="200" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/ecom(11).htm" align="center,center" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" allowtransparency="true"></iframe></div><script charset="utf-8" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/ecom(5)"></script></div>
+<div class="blank3"></div>
+<div class="r_title"><h6>热 点 排 行</h6></div>
+<div class="hotContent">
+<ul class="topnum"><li class="top1"><a href="http://www.jb51.net/article/21046.htm" title="asp.net(c#)网页跳转七种方法小结" target="_blank">asp.net(c#)网页跳转七种方法小结</a></li><li class="top2"><a href="http://www.jb51.net/article/16091.htm" title="asp.net“服务器应用程序不可用” 解决方法" target="_blank">asp.net“服务器应用程序不可用”</a></li><li class="top3"><a href="http://www.jb51.net/article/30005.htm" title="未将对象引用设置到对象的实例 (System.NullReferenceException)" target="_blank">未将对象引用设置到对象的实例 (</a></li><li class="top4"><a href="http://www.jb51.net/article/15909.htm" title="asp.net gridview 72般绝技" target="_blank">asp.net gridview 72般绝技</a></li><li class="top5"><a href="http://www.jb51.net/article/17943.htm" title="JAVA正则表达式 Pattern和Matcher" target="_blank">JAVA正则表达式 Pattern和Matche</a></li><li class="top6"><a href="http://www.jb51.net/article/16462.htm" title="asp.net UpdatePanel的简单用法" target="_blank">asp.net UpdatePanel的简单用法</a></li><li class="top7"><a href="http://www.jb51.net/article/18576.htm" title="C# XML操作 代码大全(读XML,写XML,更新,删除节点,与dataset结合等)" target="_blank">C# XML操作 代码大全(读XML,写XM</a></li><li class="top8"><a href="http://www.jb51.net/article/15250.htm" title="asp.net汉字转拼音和获取汉字首字母的代码" target="_blank">asp.net汉字转拼音和获取汉字首字</a></li><li class="top9"><a href="http://www.jb51.net/article/17629.htm" title="System.Runtime.InteropServices.COMException的解决方法" target="_blank">System.Runtime.InteropServices</a></li><li class="top10"><a href="http://www.jb51.net/article/18284.htm" title="asp.net cookie的操作，写入、读取与操作" target="_blank">asp.net cookie的操作，写入、读</a></li></ul>
+</div>
+<div class="blank3"></div>
+<div id="art_3"><script src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/r_3.js"></script><a href="http://tuidc.com/" target="_blank"><img src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/tengyou300.gif" width="300" height="100"></a><div class="r_title"><h6>Js与CSS工具</h6></div>
+<div class="rightContent"><ul>
+<li><a href="http://www.jb51.net/tools/cssyasuo.shtml" target="_blank"><font color="red">CSS在线压缩格式化(中文)</font></a></li>
+<li><a href="http://www.codebeautifier.com/" target="_blank"><font color="red">css 格式化整理工具(英文)</font></a></li>
+<li><a href="http://www.jb51.net/csstidy/css_optimiser.php?lang=zh" target="_blank">CSS整形格式化</a></li> 
+<li><a href="http://tools.jb51.net/tools/js_geshihua.asp" target="_blank"><font color="red">JavaScript 格式化整理工具</font></a></li>
+<li><a href="http://jsbeautifier.org/" target="_blank"><font color="red">jsbeautifier Js格式化整理工具(英文)</font></a></li>
+<li><a href="http://www.phpformatter.com/" target="_blank"><font color="red">php 格式化整理工具(英文)</font></a></li>
+<li><a href="http://www.jb51.net/tools/html-js.htm" target="_blank">HTML/JS互相转换工具</a></li>
+<li><a href="http://www.jb51.net/tools/packer.htm" target="_blank"><font color="red">javascript pack加密压缩工具</font></a></li>
+<li><a href="http://www.jb51.net/tools/jsmin/index.htm" target="_blank">JS Minifier压缩</a></li> 
+<li><a href="http://www.jb51.net/tools/JShunxiao.htm" target="_blank">JS混淆工具</a></li> 
+<li><a href="http://www.jb51.net/tools/js_Debug.htm" target="_blank">在线JS脚本校验器错误</a></li>
+<li><a href="http://tools.jb51.net/tools/regex.asp" target="_blank">JavaScript 正则表达式在线测试工具</a></li>
+</ul>
+</div>
+<div class="blank3"></div>
+<a href="http://idc567.com/" target="_blank"><img src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/lichen300.gif" width="300" height="80"></a><div class="blank2"></div><a href="http://www.geisnic.com/" target="_blank"><img src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/gs.gif" width="300" height="60"></a><div class="blank2"></div><a href="http://www.taoquanquan.com/" target="_blank"><img src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/tqq.gif" width="300" height="100"></a><div class="blank3"></div>
+<div class="r_title"><h6>代码转换工具</h6></div>
+<div class="rightContent"><ul>
+<li><a href="http://www.jb51.net/tools/base64.htm" target="_blank">Base64编码加密</a></li>
+<li><a href="http://tools.jb51.net//tools/Escape.asp" target="_blank">Escape加解密</a></li>
+<li><a href="http://tools.jb51.net/html_ubb.asp" target="_blank">HTML/UBB代码转换</a></li>
+<li><a href="http://www.jb51.net/tools/fanjianzhi.htm" target="_blank">GB2312/BIG5繁简字转换</a></li>
+<li><a href="http://www.jb51.net/tools/jingdian.shtml" target="_blank">经典小工具集 数字转换</a></li>
+<li><a href="http://www.jb51.net/tools/htmlto.htm" target="_blank">HTML多功能代码转换器</a></li>
+<li><a href="http://www.jb51.net/tools/xunleijm.htm" target="_blank">迅雷快车加/解密</a></li>
+<li><a href="http://tools.jb51.net/tools/pinyin.asp" target="_blank">汉字转换拼音</a></li>
+</ul>
+</div>
+<div class="blank3"></div><a href="http://www.33ip.com/" target="_blank"><img src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/33ip_300.gif" width="300" height="100"></a><div class="blank3"></div>
+</div>
+<div class="blank3"></div>
+<div id="baidu300"><script type="text/javascript" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/baidu300_2.js"></script><script src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/c(1).js" type="text/javascript"></script><div id="BAIDU_DUP_wrapper_u1397867_0" width="300px" height="250px" style="width: 300px; height: 250px; display: inline-block; z-index: 2147483646;"><iframe id="cproIframe1" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/ecom(12).htm" width="300" height="250" align="center,center" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" allowtransparency="true"></iframe></div><script charset="utf-8" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/ecom(6)"></script></div>
+</div><!--end mainr-->
+<div class="clear"></div>
+</div><!--end main2-->
+<div class="blank3"></div>
+<div id="footer">
+  <div id="footerinfo">
+   <div id="footercontent"><a href="http://www.jb51.net/about.htm" target="_blank">关于我们</a> - <a href="http://www.jb51.net/support.htm" target="_blank">广告合作</a> - <a href="http://www.jb51.net/linkus.htm" target="_blank">联系我们</a> -  <a href="http://www.jb51.net/sm.htm" target="_blank">免责声明</a> -  <a href="http://www.jb51.net/sitemap.htm" target="_blank">网站地图</a> - <a href="tencent://message/?uin=461478385&Site=http://www.jb51.net" target="_blank">投诉建议</a> - <a href="http://www.jb51.net/up.htm" target="_blank">在线投稿</a></div>
+    <div id="footercopyrights">CopyRight &#169; 2006-2014 <a href="http://www.jb51.net/">脚本之家</a> JB51.Net , All Rights Reserved</div>
+  </div>
+</div>
+<script type="text/javascript">
+var tougao="whsnow";
+document.body.oncopy = function () { 
+	setTimeout( function () { 
+		var text = getClipboard();
+		if (text) { 
+			text = text + "\r\n详细出处参考："+document.location.href; 
+copy2Clipboard(text);
+
+		} 
+				}, 100 ) 
+}
+</script>
+<div id="logo_m_tp"></div>
+<div id="logo_r_tp"></div>
+<div id="title_ad1_tp"></div>
+<div id="tonglan1_tp"></div>
+<script type="text/javascript" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/con_ad.js"></script><script src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/f.js" type="text/javascript"></script><script type="text/javascript" charset="utf-8" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/ecom(7)"></script><script src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/i.php"></script>
+<div class="tongji"><script type="text/javascript" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/tongji.js"></script><script src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/h.js" type="text/javascript"></script><script src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/stat.php" language="JavaScript"></script><script src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/core.php" charset="utf-8" type="text/javascript"></script><a href="http://www.cnzz.com/stat/website.php?web_id=1585378" target="_blank" title="站长统计">站长统计</a><script src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/stat(1).php" language="JavaScript"></script><script src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/core(1).php" charset="utf-8" type="text/javascript"></script><a href="http://www.cnzz.com/stat/website.php?web_id=4180674" target="_blank" title="站长统计">站长统计</a><script src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/stat(2).php" language="JavaScript"></script><script src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/core(2).php" charset="utf-8" type="text/javascript"></script><a href="http://www.cnzz.com/stat/website.php?web_id=5488901" target="_blank" title="站长统计">站长统计</a></div><div id="LELE_ShowDIV_UNIONtop" style="position: fixed; z-index: 2147483647; bottom: 0px; right: 0px; overflow: visible;"><div id="LELE_ShowDIV_UNION" style="position: fixed; z-index: 2147483647; bottom: 0px; right: 0px; overflow: hidden;"><div id="_QIQI_close_btn" style="z-index: 2147483646; cursor: pointer; top: 3px; left: 240px; width: 25px; height: 13px; display: block; position: absolute;"><img style="width:25px; height:13px;padding:0px;border:0px;" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/close.png"></div><div id="adfdiv" style="margin: 0px; padding: 0px; width: 270px; height: 200px;"><div style="position:absolute;z-index:1"><a id="kaka_" href="http://www.ayhuo.com/68501.html?sid=47963" target="_blank"><img src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/dot.gif" style="width:270px;height:200px; background:0;padding:0px;border:0px;" width="270" height="200" border="0"></a></div> <object codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,24,0" width="270" height="200" align="middle"><param name="movie" value="http://img.sp.cc/a/richimg/dj/7789/3/270x200.swf"><param name="quality" value="high"><param name="menu" value="false"><param name="wmode" value="opaque"><embed pluginspage="http://www.macromedia.com/go/getflashplayer" width="270" height="200" align="middle" type="application/x-shockwave-flash" src="http://img.sp.cc/a/richimg/dj/7789/3/270x200.swf" quality="high" menu="false" wmode="opaque"></object></div></div><div id="LELE_ShowDIV_UNION_REPLAY" style="position: fixed; z-index: 2147483647; bottom: 0px; right: 0px; overflow: hidden; display: none;"><div style="z-index: 2147483646; cursor: pointer; bottom: 0px; right: 0px; width: 60px; height: 65px;"><img style="width:60px; height:65px;padding:0px;border:0px;" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/chongbo.png"></div></div></div>
+<script type="text/javascript" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/pl_counts.asp"></script>
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=50347" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/bds_s_v2.js"></script>
+
+<script type="text/javascript">
+	document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?t=" + new Date().getHours();
+</script>
+<!-- Baidu Button END -->
+<!-- Duoshuo Comment BEGIN -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"jb51"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+
+
+<!-- published at 2014-3-9 19:59:05By dxycms qq:461478385  --><div id="cproIframe1holder" style="padding: 0px; display: block; visibility: visible; border: none; background-image: none; float: none; overflow: hidden; position: fixed; z-index: 2; width: 130px; height: 360px; right: 10px; top: 150px; background-position: initial initial; background-repeat: initial initial;"><div id="cproIframe1CloseBtnWrap" style="position: absolute; top: 275px; left: 0px; cursor: pointer; width: 130px; height: 28px; z-index: 100; opacity: 0; background-color: rgb(153, 153, 153);"></div><div id="cproIframe1CloseBtn" style="position: absolute; width: 130px; height: 20px; top: 280px; left: 0px; cursor: pointer; background-color: rgb(153, 153, 153); color: rgb(255, 255, 255); font-size: 12px; font-family: 微软雅黑; text-align: center; line-height: 20px;">关闭</div><div style="width: 130px; height: 360px; overflow: hidden;"><div style="display:none">-</div> <iframe id="cproIframe1" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/uijs(1).htm" width="130" height="360" align="center,center" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" allowtransparency="true"></iframe></div></div><div id="cproIframe2holder" style="padding: 0px; display: block; visibility: visible; border: none; background-image: none; float: none; overflow: hidden; position: fixed; z-index: 2; width: 130px; height: 360px; left: 10px; top: 150px; background-position: initial initial; background-repeat: initial initial;"><div id="cproIframe2CloseBtnWrap" style="position: absolute; top: 275px; left: 0px; cursor: pointer; width: 130px; height: 28px; z-index: 100; opacity: 0; background-color: rgb(153, 153, 153);"></div><div id="cproIframe2CloseBtn" style="position: absolute; width: 130px; height: 20px; top: 280px; left: 0px; cursor: pointer; background-color: rgb(153, 153, 153); color: rgb(255, 255, 255); font-size: 12px; font-family: 微软雅黑; text-align: center; line-height: 20px;">关闭</div><div style="width: 130px; height: 360px; overflow: hidden;"><div style="display:none">-</div> <iframe id="cproIframe2" src="./Asp.net内置对象之Server对象(概述及应用)_实用技巧_脚本之家_files/uijs.htm" width="130" height="360" align="center,center" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" allowtransparency="true"></iframe></div></div>
+</body></html>

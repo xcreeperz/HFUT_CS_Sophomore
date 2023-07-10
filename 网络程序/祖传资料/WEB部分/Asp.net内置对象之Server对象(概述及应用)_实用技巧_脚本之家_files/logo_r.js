@@ -1,0 +1,1 @@
+﻿document.write('<a href="http://www.51idc.com/index.html?origin=341162b0588a263c154b352c0966e6dd" target="_blank"><img src="http://img.jb51.net/imgby/51idc_370.gif" width=370 height=60 /></a>');

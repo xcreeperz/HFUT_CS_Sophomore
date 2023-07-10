@@ -1,0 +1,2 @@
+document.writeln("<b>友情提醒</b>：本站文件的解压密码：www.jb51.net (请使用最新的winrar)</font>");
+document.write("<a href='http://www.now.cn/?now_qing_51jbbc' target='_blank' title='now.cn域名提供商'><img src='http://img.jb51.net/imgby/now468.gif' width='468' height='60'></a>");

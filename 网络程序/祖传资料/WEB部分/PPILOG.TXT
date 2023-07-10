@@ -1,0 +1,144 @@
+
+======================== NEW LOG =======================
+Build date/time = Nov  5 2004, 10:06:40
+
+Log Spec = D:\HP-F\2010级网络程序设计（内部修改的PPT、源文件）\WEB部分\PPILOG.TXT
+========================================================
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+
+======================== END LOG =======================
+
+======================== NEW LOG =======================
+Build date/time = Nov  5 2004, 10:06:40
+
+Log Spec = D:\HP-F\2010级网络程序设计（内部修改的PPT、源文件）\WEB部分\PPILOG.TXT
+========================================================
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+
+======================== END LOG =======================
+
+======================== NEW LOG =======================
+Build date/time = Nov  5 2004, 10:06:40
+
+Log Spec = D:\HP-F\2010级网络程序设计（内部修改的PPT、源文件）\WEB部分\PPILOG.TXT
+========================================================
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+D:\netw\ppi\core\conutils\ATOMTAB.C:443:SarAtomDel non-existant atom.
+
+======================== END LOG =======================
